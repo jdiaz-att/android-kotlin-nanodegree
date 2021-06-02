@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="email_label">E-mail</string>
+    <string name="password_label">Password</string>
+    <string name="create_button_label">Create account</string>
+    <string name="login_button_label">Login</string>
+    <string name="email_hint">user@example.com</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="welcome_title">Welcome to Shoe Store</string>
+    <string name="welcome_content">The best shoes store management tool</string>
+    <string name="next_button_label">Continue</string>
+    <string name="instructions_label">Instructions:</string>
+    <string name="instructions_content">To add a new shoe:\n1. Press on the \'+\' button.\n2. Fill all the data.\n3. Press \'Save\' to add the entry to the list.\n4. Press \'Cancel\' to return without adding any changes.</string>
+    <string name="floating_cd">Add new shoe</string>
+    <string name="name">Name</string>
+    <string name="company">Company</string>
+    <string name="shoe_size">Shoe size</string>
+    <string name="shoe_size_hint">7</string>
+    <string name="description">Description</string>
+    <string name="save_button_label">Save</string>
 </resources>
