@@ -10,7 +10,9 @@
     <string name="welcome_content">The best shoes store management tool</string>
     <string name="next_button_label">Continue</string>
     <string name="instructions_label">Instructions:</string>
-    <string name="instructions_content">To add a new shoe:\n1. Press on the \'+\' button.\n2. Fill all the data.\n3. Press \'Save\' to add the entry to the list.\n4. Press \'Cancel\' to return without adding any changes.</string>
+    <string name="instructions_content">To add a new shoe:\n1. Press on the \'+\' button.\n2. Fill
+        all the data.\n3. Press \'Save\' to add the entry to the list.\n4. Press \'Cancel\' to
+        return without adding any changes.</string>
     <string name="floating_cd">Add new shoe</string>
     <string name="name">Name</string>
     <string name="company">Company</string>
@@ -18,4 +20,12 @@
     <string name="shoe_size_hint">7</string>
     <string name="description">Description</string>
     <string name="save_button_label">Save</string>
+    <string name="email_invalid">E-mail format is not valid. Please check.</string>
+    <string name="password_invalid">Password must be at least 4 characters long.</string>
+    <string name="both_invalid">E-mail format is not valid and the password must be at least 4
+        characters long.</string>
+    <string name="ok_create">Account created.</string>
+    <string name="ok_login">Logged in.</string>
+    <string name="shoe_detail_text_error">Name, company, and description must be at least 3
+        characters long. Shoe size must be between 1 and 30.</string>
 </resources>
