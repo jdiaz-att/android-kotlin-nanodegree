@@ -37,6 +37,10 @@ class ShoeModel : ViewModel() {
         _errorMessageId.value = -1
     }
 
+    fun removeAllShoes() {
+        _shoeList.value?.clear()
+    }
+
     private fun validateTextField(input: String): Boolean {
         return input.length >= MIN_TEXT_LENGTH
     }

@@ -33,14 +33,22 @@ class ShoeDetailFragment : Fragment() {
                 binding.descriptionText.text.toString())
         }
 
+        binding.cancelButton.setOnClickListener {
+            navigateToList()
+        }
+
         shoeModel.errorMessageId.observe(viewLifecycleOwner, Observer { id ->
             if (id > 0) {
                 Toast.makeText(context, id, LENGTH_LONG).show()
             } else if (id ==0) {
-                val action = ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
-                findNavController().navigate(action)
+                navigateToList()
             }
         })
         return binding.root
+    }
+
+    private fun navigateToList() {
+        val action = ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
+        findNavController().navigate(action)
     }
 }

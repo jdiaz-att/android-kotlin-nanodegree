@@ -42,7 +42,7 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun addShoeToList(name: String) {
-        val shoeTextView = TextView(context, null, R.style.ShoeTextViewstyle)
+        val shoeTextView = TextView(context, null, R.style.ShoeTextViewStyle)
         shoeTextView.text = name
         binding.shoeLinearLayout.addView(shoeTextView)
     }

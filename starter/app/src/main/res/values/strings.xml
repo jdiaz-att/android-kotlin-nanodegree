@@ -28,4 +28,5 @@
     <string name="ok_login">Logged in.</string>
     <string name="shoe_detail_text_error">Name, company, and description must be at least 3
         characters long. Shoe size must be between 1 and 30.</string>
+    <string name="logout">Logout</string>
 </resources>
