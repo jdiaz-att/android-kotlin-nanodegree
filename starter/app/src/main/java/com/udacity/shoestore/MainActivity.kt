@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         shoeModel = ViewModelProvider(this).get(ShoeModel::class.java)
 
-        navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, args: Bundle? ->
+        navController.addOnDestinationChangedListener { _, nd: NavDestination, args: Bundle? ->
             if (nd.id == R.id.shoeListFragment) {
                 enableMenu()
             } else {
@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
 
@@ -53,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.app_menu, menu)
         if (menu != null) {
             logoutMenuItem = menu.findItem(R.id.loginFragment)
+            if (navController.graph.startDestination == navController.currentDestination?.id) {
+                disableMenu()
+            }
         }
         return true
     }
@@ -65,12 +67,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun enableMenu() {
         if (logoutMenuItem == null) return
+        Timber.d("${navController.currentDestination?.label} - Enable login menu")
         logoutMenuItem!!.isEnabled = true
         logoutMenuItem!!.isVisible = true
     }
 
     private fun disableMenu() {
         if (logoutMenuItem == null) return
+        Timber.d("${navController.currentDestination?.label} - Disable login menu")
         logoutMenuItem!!.isEnabled = false
         logoutMenuItem!!.isVisible = false
     }

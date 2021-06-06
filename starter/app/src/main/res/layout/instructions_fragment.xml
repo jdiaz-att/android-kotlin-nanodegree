@@ -13,31 +13,29 @@
             android:id="@+id/instructions_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_margin="16dp"
             android:text="@string/instructions_label"
+            android:textColor="@color/black"
             android:textSize="36sp"
-            app:layout_constraintBottom_toTopOf="@+id/instructions_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/instructions_content"
+            app:layout_constraintStart_toStartOf="@+id/instructions_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/instructions_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_margin="16dp"
+            android:paddingHorizontal="10dp"
             android:text="@string/instructions_content"
+            android:textColor="@color/black"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instructions_title" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/instructions_next"

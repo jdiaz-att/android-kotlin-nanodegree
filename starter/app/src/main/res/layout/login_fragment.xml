@@ -15,9 +15,7 @@
             style="@style/TextViewStyle"
             android:text="@string/email_label"
             app:layout_constraintBottom_toTopOf="@+id/email_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.284"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/email_text"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="@string/email_label" />
@@ -32,8 +30,7 @@
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@+id/password_tv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/password_tv"
             app:layout_constraintTop_toBottomOf="@+id/email_tv" />
 
         <TextView
@@ -41,9 +38,7 @@
             style="@style/TextViewStyle"
             android:text="@string/password_label"
             app:layout_constraintBottom_toTopOf="@+id/password_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.313"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/password_text"
             app:layout_constraintTop_toBottomOf="@+id/email_text"
             tools:text="@string/password_label" />
 
@@ -72,7 +67,7 @@
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.97"/>
+            app:layout_constraintVertical_bias="0.97" />
 
         <Button
             android:id="@+id/button_login"

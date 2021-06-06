@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -28,7 +28,7 @@ class LoginFragment : Fragment() {
         val viewModel = ViewModelProvider(this).get(LoginModel::class.java)
         viewModel.result.observe(viewLifecycleOwner, Observer { result ->
             val message = context?.getString(result.stringId)
-            Toast.makeText(context, message, LENGTH_LONG).show()
+            Toast.makeText(context, message, LENGTH_SHORT).show()
             if (result == LoginModel.Result.OK_CREATE || result == LoginModel.Result.OK_LOGIN) {
                 val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
                 findNavController().navigate(action)

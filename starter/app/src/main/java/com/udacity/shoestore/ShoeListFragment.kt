@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeModel
 
 class ShoeListFragment : Fragment() {
@@ -35,15 +36,20 @@ class ShoeListFragment : Fragment() {
         shoeModel.errorMessageDisplayed()
         shoeModel.shoeList.observe(viewLifecycleOwner, Observer { list ->
             for (shoe in list) {
-                addShoeToList(shoe.name)
+                addShoeToList(shoe)
             }
         })
         return binding.root
     }
 
-    private fun addShoeToList(name: String) {
-        val shoeTextView = TextView(context, null, R.style.ShoeTextViewStyle)
-        shoeTextView.text = name
-        binding.shoeLinearLayout.addView(shoeTextView)
+    private fun addShoeToList(shoe: Shoe) {
+        val shoeTitleTextView = TextView(context, null, 0, R.style.ShoeTextTitleViewStyle)
+        shoeTitleTextView.text = shoe.name
+        binding.shoeLinearLayout.addView(shoeTitleTextView)
+
+        val shoeDetailTextView = TextView(context, null, 0, R.style.ShoeTextDetailViewStyle)
+        shoeDetailTextView.text = getString(R.string.shoe_item_details, shoe.size, shoe.company,
+                shoe.description)
+        binding.shoeLinearLayout.addView(shoeDetailTextView)
     }
 }
