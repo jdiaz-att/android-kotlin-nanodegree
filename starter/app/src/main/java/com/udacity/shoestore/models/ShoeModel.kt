@@ -18,6 +18,7 @@ class ShoeModel : ViewModel() {
 
     init {
         _shoeList.value = ArrayList()
+        _errorMessageId.value = ERROR_MSG_ID_INITIAL
     }
 
     fun addShoe(name: String, company: String, size: String, description: String) {
@@ -29,12 +30,16 @@ class ShoeModel : ViewModel() {
             _shoeList.value?.add(shoe)
             _shoeList.value = _shoeList.value
             Timber.d("New shoe: $shoe.")
-            _errorMessageId.value = 0
+            _errorMessageId.value = ERROR_MSG_ID_TERMINATE
         }
     }
 
+    fun terminate() {
+        _errorMessageId.value = ERROR_MSG_ID_TERMINATE
+    }
+
     fun errorMessageDisplayed() {
-        _errorMessageId.value = -1
+        _errorMessageId.value = ERROR_MSG_ID_INITIAL
     }
 
     fun removeAllShoes() {
@@ -53,5 +58,8 @@ class ShoeModel : ViewModel() {
     companion object {
         private const val MIN_TEXT_LENGTH = 3
         private const val MAX_SHOE_SIZE = 30
+
+        private const val ERROR_MSG_ID_INITIAL = -1
+        private const val ERROR_MSG_ID_TERMINATE = 0 // causes to exit shoe detail screen
     }
 }

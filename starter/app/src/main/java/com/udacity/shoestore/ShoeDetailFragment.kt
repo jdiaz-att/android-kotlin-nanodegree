@@ -26,16 +26,7 @@ class ShoeDetailFragment : Fragment() {
         val binding: ShoeDetailFragmentBinding = DataBindingUtil.inflate(inflater,
             R.layout.shoe_detail_fragment, container, false)
         binding.lifecycleOwner = this
-
-        binding.saveButton.setOnClickListener {
-            shoeModel.addShoe(binding.shoeNameText.text.toString(),
-                binding.companyText.text.toString(), binding.shoeSizeText.text.toString(),
-                binding.descriptionText.text.toString())
-        }
-
-        binding.cancelButton.setOnClickListener {
-            navigateToList()
-        }
+        binding.shoeModel = shoeModel
 
         shoeModel.errorMessageId.observe(viewLifecycleOwner, Observer { id ->
             if (id > 0) {
