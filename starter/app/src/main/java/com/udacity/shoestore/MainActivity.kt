@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         navController = findNavController(R.id.myNavHostFragment)
         appBarConfiguration = AppBarConfiguration.Builder(R.id.loginFragment, R.id.welcomeFragment,
-                R.id.instructionsFragment, R.id.shoeListFragment)
+                R.id.shoeListFragment)
                 .build()
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         shoeModel = ViewModelProvider(this).get(ShoeModel::class.java)
@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.app_menu, menu)
         if (menu != null) {
-            logoutMenuItem = menu.findItem(R.id.loginFragment)
-            if (navController.graph.startDestination == navController.currentDestination?.id) {
+            logoutMenuItem = menu.findItem(R.id.action_shoeListFragment_to_loginFragment)
+            if (R.id.shoeListFragment != navController.currentDestination?.id) {
                 disableMenu()
             }
         }
@@ -60,9 +60,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navResult = NavigationUI.onNavDestinationSelected(item, navController)
-        if (navResult) shoeModel.removeAllShoes()
-        return navResult || super.onOptionsItemSelected(item)
+        if (item.itemId == logoutMenuItem?.itemId) {
+            val action = ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment()
+            navController.navigate(action)
+            shoeModel.removeAllShoes()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun enableMenu() {

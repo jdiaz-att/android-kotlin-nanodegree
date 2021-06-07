@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeModel
+import timber.log.Timber
 
 class ShoeListFragment : Fragment() {
 
@@ -43,6 +44,7 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun addShoeToList(shoe: Shoe) {
+        Timber.d("Adding the new shoe to the list")
         val shoeTitleTextView = TextView(context, null, 0, R.style.ShoeTextTitleViewStyle)
         shoeTitleTextView.text = shoe.name
         binding.shoeLinearLayout.addView(shoeTitleTextView)
