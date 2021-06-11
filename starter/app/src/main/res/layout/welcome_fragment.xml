@@ -3,6 +3,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Used ConstraintLayout to align the title to the top of the screen and the instructions
+         to the center of the screen, and use the constraint properties to align a View in
+         reference of another View.
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/welcome_layout"
         android:layout_width="match_parent"

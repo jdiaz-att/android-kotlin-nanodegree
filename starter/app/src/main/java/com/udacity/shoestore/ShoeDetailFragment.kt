@@ -12,11 +12,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeModel
 
 class ShoeDetailFragment : Fragment() {
 
     private val shoeModel: ShoeModel by activityViewModels()
+    private val shoe = Shoe("", 0.0, "", "")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +29,11 @@ class ShoeDetailFragment : Fragment() {
             R.layout.shoe_detail_fragment, container, false)
         binding.lifecycleOwner = this
         binding.shoeModel = shoeModel
+        binding.shoe = shoe
+
+        binding.saveButton.setOnClickListener {
+            shoeModel.addShoe(shoe.name, shoe.company, shoe.size, shoe.description)
+        }
 
         shoeModel.errorMessageId.observe(viewLifecycleOwner, Observer { id ->
             if (id > 0) {

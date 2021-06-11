@@ -8,8 +8,15 @@
         <variable
             name="shoeModel"
             type="com.udacity.shoestore.models.ShoeModel" />
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+    <!-- Used a ConstraintLayout for the ScrollView and LinearLayout so I could put on on top of the
+         other one so they don't overlap with each other. Then put the button in the LinearLayout to
+         simplify the main views in just 2 of them, the ScrollView and the LinearLayout
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,7 +51,8 @@
                     android:ems="10"
                     android:hint="@string/name"
                     android:importantForAutofill="no"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:text="@={shoe.name}" />
 
                 <TextView
                     android:id="@+id/company_tv"
@@ -60,7 +68,8 @@
                     android:ems="10"
                     android:hint="@string/company"
                     android:importantForAutofill="no"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:text="@={shoe.company}" />
 
                 <TextView
                     android:id="@+id/shoe_size_tv"
@@ -76,7 +85,8 @@
                     android:ems="10"
                     android:hint="@string/shoe_size_hint"
                     android:importantForAutofill="no"
-                    android:inputType="number" />
+                    android:inputType="numberDecimal"
+                    android:text="@={`` + shoe.size}" />
 
                 <TextView
                     android:id="@+id/description_tv"
@@ -92,7 +102,8 @@
                     android:ems="10"
                     android:hint="@string/description"
                     android:importantForAutofill="no"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:text="@={shoe.description}" />
             </LinearLayout>
         </ScrollView>
 
@@ -122,7 +133,6 @@
                 android:layout_width="182dp"
                 android:layout_height="wrap_content"
                 android:text="@string/save_button_label"
-                android:onClick="@{() -> shoeModel.addShoe(shoeNameText.getText().toString(), companyText.getText().toString(), shoeSizeText.getText().toString(), descriptionText.getText().toString())}"
                 tools:ignore="ButtonStyle" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@ class ShoeModel : ViewModel() {
         _errorMessageId.value = ERROR_MSG_ID_INITIAL
     }
 
-    fun addShoe(name: String, company: String, size: String, description: String) {
+    fun addShoe(name: String, company: String, size: Double, description: String) {
         if (!validateTextField(name) || !validateTextField(company) ||
             !validateTextField(description) || !validateShoeSize(size)) {
             _errorMessageId.value = R.string.shoe_detail_text_error
@@ -50,9 +50,8 @@ class ShoeModel : ViewModel() {
         return input.length >= MIN_TEXT_LENGTH
     }
 
-    private fun validateShoeSize(size: String): Boolean {
-        val sizeDouble = size.toDoubleOrNull()
-        return sizeDouble != null && sizeDouble > 0 && sizeDouble <= MAX_SHOE_SIZE
+    private fun validateShoeSize(size: Double): Boolean {
+        return size > 0 && size <= MAX_SHOE_SIZE
     }
 
     companion object {

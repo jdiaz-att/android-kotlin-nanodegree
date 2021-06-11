@@ -29,7 +29,7 @@
     <string name="shoe_detail_text_error">Name, company, and description must be at least 3
         characters long. Shoe size must be between 1 and 30.</string>
     <string name="logout">Logout</string>
-    <string name="shoe_item_details">Size: %.0f\nCompany: %s\nDescription:%s</string>
+    <string name="shoe_item_details">Size: %.1f\nCompany: %s\nDescription:%s</string>
     <string name="shoe_list_fragment_label">Shoe Inventory</string>
     <string name="instructions_fragment_label">Instructions</string>
     <string name="welcome_fragment_label">Welcome</string>
