@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="loginModel"
+            type="com.udacity.shoestore.models.LoginModel" />
+    </data>
+
     <!-- Since this screen has multiple views, I thought it would be better to use a
          ConstraintLayout and set their positions in reference of each other.
     -->
@@ -64,6 +70,7 @@
             android:layout_width="181dp"
             android:layout_height="wrap_content"
             android:text="@string/create_button_label"
+            android:onClick="@{() -> loginModel.processInput(emailText.getText().toString(), passwordText.getText().toString(), false)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_login"
             app:layout_constraintHorizontal_bias="0.5"
@@ -77,6 +84,7 @@
             android:layout_width="182dp"
             android:layout_height="wrap_content"
             android:text="@string/login_button_label"
+            android:onClick="@{() -> loginModel.processInput(emailText.getText().toString(), passwordText.getText().toString(), true)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

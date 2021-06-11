@@ -32,7 +32,7 @@ class ShoeDetailFragment : Fragment() {
         binding.shoe = shoe
 
         binding.saveButton.setOnClickListener {
-            shoeModel.addShoe(shoe.name, shoe.company, shoe.size, shoe.description)
+            shoeModel.addShoe(shoe)
         }
 
         shoeModel.errorMessageId.observe(viewLifecycleOwner, Observer { id ->

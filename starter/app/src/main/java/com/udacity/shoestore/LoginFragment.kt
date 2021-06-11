@@ -23,9 +23,10 @@ class LoginFragment : Fragment() {
     ): View? {
         val binding: LoginFragmentBinding = DataBindingUtil.inflate(inflater,
             R.layout.login_fragment, container, false)
-        binding.lifecycleOwner = this
-
         val viewModel = ViewModelProvider(this).get(LoginModel::class.java)
+        binding.lifecycleOwner = this
+        binding.loginModel = viewModel
+
         viewModel.result.observe(viewLifecycleOwner, Observer { result ->
             val message = context?.getString(result.stringId)
             Toast.makeText(context, message, LENGTH_SHORT).show()
@@ -34,15 +35,6 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(action)
             }
         })
-
-        binding.buttonCreate.setOnClickListener {
-            viewModel.processInput(binding.emailText.text.toString(),
-                    binding.passwordText.text.toString(), false)
-        }
-        binding.buttonLogin.setOnClickListener {
-            viewModel.processInput(binding.emailText.text.toString(),
-                    binding.passwordText.text.toString(), true)
-        }
 
         return binding.root
     }

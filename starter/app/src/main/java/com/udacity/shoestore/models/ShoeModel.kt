@@ -21,12 +21,11 @@ class ShoeModel : ViewModel() {
         _errorMessageId.value = ERROR_MSG_ID_INITIAL
     }
 
-    fun addShoe(name: String, company: String, size: Double, description: String) {
-        if (!validateTextField(name) || !validateTextField(company) ||
-            !validateTextField(description) || !validateShoeSize(size)) {
+    fun addShoe(shoe: Shoe) {
+        if (!validateTextField(shoe.name) || !validateTextField(shoe.company) ||
+            !validateTextField(shoe.description) || !validateShoeSize(shoe.size)) {
             _errorMessageId.value = R.string.shoe_detail_text_error
         } else {
-            val shoe = Shoe(name, size.toDouble(), company, description)
             _shoeList.value?.add(shoe)
             _shoeList.value = _shoeList.value
             Timber.d("New shoe: $shoe.")
